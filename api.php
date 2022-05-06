@@ -12,7 +12,7 @@
 		
 		die('Unable to connect'.mysqli_connect_error());
 	}
-	$stmt = $conn->prepare("SELECT tbldegalinesinfo.id,miestas,pavadinimas,tbldegalinesinfo.adresas,ikelimoData,benzinoKaina,dyzelioKaina,dujuKaina,tbldegalineslocation.latitude,tbldegalineslocation.longtitude FROM tbldegalinesinfo INNER JOIN tbldegalineslocation ON tbldegalinesinfo.adresas = tbldegalineslocation.adresas;");
+	$stmt = $conn->prepare("SELECT tbldegalinesinfo.id,miestas,pavadinimas,tbldegalinesinfo.adresas,ikelimoData,benzinoKaina,dyzelioKaina,dujuKaina,tbldegalineslocation.latitude,tbldegalineslocation.longtitude FROM tbldegalinesinfo INNER JOIN tbldegalineslocation ON tbldegalinesinfo.adresas = tbldegalineslocation.adresas WHERE benzinoKaina!=0;");
 	
 	$stmt->execute();
 	

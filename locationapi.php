@@ -12,17 +12,18 @@
 		
 		die('Unable to connect'.mysqli_connect_error());
 	}
-	$stmt = $conn->prepare("SELECT adresas,latitude,longtitude FROM tbldegalineslocation");
+	$stmt = $conn->prepare("SELECT tbldegalinesinfo.pavadinimas,tbldegalineslocation.adresas,latitude,longtitude FROM tbldegalineslocation INNER JOIN tbldegalinesinfo on tbldegalineslocation.adresas = tbldegalinesinfo.adresas");
 	
 	$stmt->execute();
 	
-	$stmt->bind_result($adresas,$latitude,$longtitude);
+	$stmt->bind_result($pavadinimas,$adresas,$latitude,$longtitude);
 	
 	$loc = array();
 	
 	while($stmt->fetch()){
 		
 	$temp = array();	
+	$temp['pavadinimas']=$pavadinimas;	
 	$temp['adresas']=$adresas;	
 	$temp['latitude']=$latitude;	
 	$temp['longtitude']=$longtitude;	

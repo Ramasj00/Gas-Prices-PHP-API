@@ -14,8 +14,6 @@
 		die('Unable to connect'.mysqli_connect_error());
 	}
 	
-	$user_name = $_POST["username"];
-	$password = $_POST["password"];
 	
 	$adresas=$_POST["adresas"];
 	$benzinoKaina = $_POST["benzinoKaina"];

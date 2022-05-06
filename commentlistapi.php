@@ -12,8 +12,9 @@
 		
 		die('Unable to connect'.mysqli_connect_error());
 	}
+	$adresas = $_POST["adresas"];
 	
-	$stmt = $conn->prepare("SELECT adresas,benzinoKaina,dyzelioKaina,dujuKaina,commentData FROM tbldegalinescommentlist ORDER BY id desc");
+	$stmt = $conn->prepare("SELECT adresas,benzinoKaina,dyzelioKaina,dujuKaina,commentData FROM tbldegalinescommentlist where adresas = '$adresas' ORDER BY id desc");
 	
 	$stmt->execute();
 	
